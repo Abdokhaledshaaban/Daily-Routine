@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>روتيني الأسبوعي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F8FC;--surf:#fff;--ink:#1F2937;--mut:#6B7280;--line:#E5E7EB;--navy:#1E2A4A;
+--code:#2563EB;--study:#7C3AED;--lesson:#16A34A;--kuttab:#0D9488;--gym:#EA580C;--sleep:#5B6CAF;--rest:#6B7280;--transport:#9CA3AF;--bad:#DC2626;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0F1524;--surf:#182033;--ink:#E8ECF5;--mut:#98A2B8;--line:#2A3550;--navy:#E8ECF5;--code:#6B9BFF;--study:#A78BFA;--lesson:#4ADE80;--kuttab:#2DD4BF;--gym:#FB923C;--sleep:#8FA0E6;--rest:#9AA3B5}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0F1524;--surf:#182033;--ink:#E8ECF5;--mut:#98A2B8;--line:#2A3550;--navy:#E8ECF5;--code:#6B9BFF;--study:#A78BFA;--lesson:#4ADE80;--kuttab:#2DD4BF;--gym:#FB923C;--sleep:#8FA0E6;--rest:#9AA3B5}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.5;font-size:15px}
+.wrap{max-width:900px;margin:0 auto;padding:16px 14px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+h1{margin:0;font-size:30px;font-weight:800;color:var(--navy)}
+.sub{color:var(--mut);font-size:13px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+button,select,input{font-family:inherit;font-size:14px;color:var(--ink)}
+.btn{border:1px solid var(--line);background:var(--surf);border-radius:12px;padding:7px 13px;font-weight:700;cursor:pointer}
+.btn.on{background:var(--code);color:#fff;border-color:var(--code)}
+.btn:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--code);outline-offset:2px}
+.tabs{display:flex;gap:6px;background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:5px;margin-bottom:16px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.tab{flex:1;border:0;background:none;border-radius:12px;padding:9px 4px;font-weight:700;color:var(--mut);cursor:pointer}
+.tab.on{background:var(--navy);color:var(--bg)}
+.days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.day{flex:none;border:1px solid var(--line);background:var(--surf);border-radius:14px;padding:7px 14px;font-weight:700;cursor:pointer}
+.day.on{background:var(--navy);color:var(--bg);border-color:var(--navy)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0 10px}
+.dh h2{margin:0;font-size:28px;font-weight:800;color:var(--navy)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;background:color-mix(in srgb,var(--c) 14%,var(--surf));color:var(--c)}
+.row{--c:var(--rest);display:grid;grid-template-columns:104px minmax(120px,190px) 1fr;gap:8px;align-items:center;margin-bottom:7px;padding:8px 12px;border-radius:12px;border-inline-start:6px solid var(--c);background:color-mix(in srgb,var(--c) 11%,var(--surf))}
+.row.code{--c:var(--code)}.row.study{--c:var(--study)}.row.lesson{--c:var(--lesson)}.row.kuttab{--c:var(--kuttab)}.row.gym{--c:var(--gym)}.row.sleep{--c:var(--sleep)}.row.transport{--c:var(--transport);padding-top:4px;padding-bottom:4px;opacity:.85}
+.row.bad{outline:2px solid var(--bad)}
+.tm{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+.rng{display:inline-flex;direction:ltr;unicode-bidi:isolate;gap:5px;font-weight:800}
+.tm small{font-size:11px;color:var(--mut);font-weight:600}
+.act{font-weight:700;color:var(--c);display:flex;gap:8px;align-items:center}
+.det{font-size:13px;color:var(--mut)}
+.warn{color:var(--bad);font-size:12px;font-weight:700}
+.row.ed{grid-template-columns:1fr 1fr 1fr 1fr;grid-auto-flow:row}
+.row.ed input,.row.ed select{width:100%;border:1px solid var(--line);border-radius:8px;padding:5px 7px;background:var(--surf);min-width:0}
+.row.ed .w2{grid-column:span 2}.row.ed .w4{grid-column:span 4}
+.del{border:0;background:none;color:var(--bad);font-weight:700;cursor:pointer;justify-self:end}
+.legend{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px;font-size:12px;color:var(--mut);font-weight:600}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-inline-end:4px;vertical-align:-1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:18px}
+.card{--c:var(--rest);display:flex;gap:12px;align-items:center;padding:14px;border-radius:16px;border-inline-start:6px solid var(--c);background:color-mix(in srgb,var(--c) 11%,var(--surf))}
+.card .ic{font-size:26px;background:var(--surf);width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none}
+.card b{color:var(--c);display:block}.card span{font-weight:700}.card small{display:block;color:var(--mut)}
+h3{font-size:18px;color:var(--navy);margin:18px 0 8px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surf)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+th{background:var(--navy);color:var(--bg);text-align:right;padding:9px 12px}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:middle}
+td.d{font-weight:800;color:var(--navy);white-space:nowrap}
+.note{margin-top:14px;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surf);color:var(--mut);font-size:13px}
+.hide{display:none}
+@media (max-width:560px){.row{grid-template-columns:88px 1fr}.row .det{grid-column:1/-1}h1{font-size:25px}.row.ed{grid-template-columns:1fr 1fr}.row.ed .w4{grid-column:span 2}}
+.row.ck{grid-template-columns:30px 104px minmax(120px,190px) 1fr}
+.cbw{display:flex;align-items:center;justify-content:center;cursor:pointer}
+.cb,input[type=checkbox]{width:22px;height:22px;accent-color:var(--c);margin:0;cursor:pointer}
+input[type=checkbox]:disabled{cursor:default;opacity:.75}
+.row.done .act span:not(.nowb),.row.done .det{text-decoration:line-through;opacity:.55}
+.row.now{box-shadow:0 0 0 2px var(--c)}
+.nowb{font-size:11px;background:var(--c);color:var(--bg);border-radius:99px;padding:0 9px}
+.prog{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px;padding:10px 14px;border-radius:14px;background:var(--surf);border:1px solid var(--line)}
+.prog b{display:block;color:var(--navy)}.prog span{font-size:12px;color:var(--mut)}
+.prog i{flex:1;min-width:140px;height:10px;border-radius:99px;background:var(--line);position:relative;overflow:hidden}
+.prog i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--p);background:var(--lesson);border-radius:99px;transition:width .3s}
+.note.lock{margin:0 0 10px}
+@media (max-width:560px){.row.ck{grid-template-columns:30px 88px 1fr}}
+@media print{body{background:#fff}.tools,.tabs,.days,.add,.del{display:none!important}.wrap{padding:0}.row{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>روتيني الأسبوعي</h1><div class="sub">الدراسة • البرمجة • الدروس • الكُتّاب • الجيم • النوم</div></div>
+<div class="tools"><button class="btn" id="edit">✏️ تعديل</button><button class="btn" id="print">🖨️ طباعة</button><button class="btn" id="reset">↩︎ الجدول الأصلي</button></div></header>
+<nav class="tabs" id="tabs"></nav>
+<main id="view"></main>
+</div>
+<script>
+const DEF={"السبت":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d0_00"},{"a":"07:30","b":"10:00","t":"study","i2":"📚","n":"Arabic","d":"حل مسائل + فهم — 90 دقيقة","id":"d0_01"},{"a":"10:00","b":"11:00","t":"rest","i2":"🛋️","n":"راحة","d":"استراحة بعد المذاكرة + فطار واي حاجه تانية","id":"d0_02"},{"a":"11:00","b":"14:00","t":"study","i2":"📚","n":"Science","d":"فهم + حل أسئلة — 90 دقيقة","id":"d0_03"},{"a":"14:00","b":"15:00","t":"family","i2":"👨‍👩‍👧","n":"وقت العائلة والوقت الحر","d":"راحة وترفيه خفيف — بدون مذاكرة","id":"d0_04"},{"a":"15:00","b":"16:00","t":"kuttab","i2":"📖","n":"حفظ قرآن","d":"حفظ قرآن لليوم الجديد","id":"d0_05"},{"a":"16:30","b":"18:30","t":"rest","i2":"🛋️","n":"الوقت الحر","d":"مذاكرة لو في اي حاجه متأخرة او مرتاكمة","id":"d0_06"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d0_07"},{"a":"19:30","b":"21:45","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d0_08"},{"a":"22:00","b":"23:00","t":"gym","i2":"🏋️","n":"الجيم","d":"الساعة 10:00 مساءً — العودة تقريبًا 11:00 أو 11:30","id":"d0_09"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🚿","n":"دش واستعداد للنوم","d":"بعد العودة مباشرة — وشيء خفيف اختياري إن شعرت بالجوع","id":"d0_10"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d0_11"}],"الأحد":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d1_00"},{"a":"07:30","b":"09:00","t":"study","i2":"📚","n":"Math","d":"واجب + مراجعة درس اليوم — 45 دقيقة","id":"d1_01"},{"a":"09:00","b":"09:30","t":"rest","i2":"🛋️","n":"راحة قصيرة","d":"استراحة بعد البرمجة","id":"d1_02"},{"a":"09:30","b":"10:45","t":"study","i2":"📚","n":"English","d":"مراجعة خفيفة — 45 دقيقة","id":"d1_03"},{"a":"10:45","b":"11:00","t":"transport","i2":"🚌","n":"المواصلات إلى الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d1_04"},{"a":"11:00","b":"13:00","t":"kuttab","i2":"📖","n":"الكُتّاب","d":"التزام ثابت من الأحد إلى الخميس","id":"d1_05"},{"a":"13:30","b":"14:00","t":"transport","i2":"🚌","n":"المواصلات إلى درس Math","d":"حوالي 30 دقيقة","id":"d1_06"},{"a":"14:00","b":"16:00","t":"lesson","i2":"🎓","n":"Math — درس","d":"ساعتان","id":"d1_07"},{"a":"16:00","b":"16:30","t":"transport","i2":"🚌","n":"العودة من درس Math","d":"حوالي 30 دقيقة","id":"d1_08"},{"a":"17:00","b":"19:00","t":"lesson","i2":"🎓","n":"Studies — درس","d":"ينتهي 6:00 وقد يمتد إلى 6:30","id":"d1_09"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d1_10"},{"a":"19:30","b":"21:45","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d1_11"},{"a":"22:00","b":"23:00","t":"family","i2":"👨‍👩‍👧","n":"وقت العائلة والراحة","d":"لا يوجد جيم اليوم — وشيء خفيف اختياري إن شعرت بالجوع","id":"d1_12"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🌙","n":"الاستعداد للنوم","d":"تجهيز هادئ للنوم","id":"d1_13"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d1_14"}],"الاثنين":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d2_00"},{"a":"07:30","b":"09:30","t":"study","i2":"📚","n":"Studies","d":"حل أسئلة + مراجعة درس الأحد — 90 دقيقة","id":"d2_01"},{"a":"09:30","b":"10:45","t":"kuttab","i2":"📖","n":"مراجعة قرآن للكتاب","d":"مراجعة قرآن قبل الكُتّاب","id":"d2_02"},{"a":"10:45","b":"11:00","t":"transport","i2":"🚌","n":"المواصلات إلى الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d2_03"},{"a":"11:00","b":"13:00","t":"kuttab","i2":"📖","n":"الكُتّاب","d":"التزام ثابت من الأحد إلى الخميس","id":"d2_04"},{"a":"13:00","b":"13:30","t":"transport","i2":"🚌","n":"العودة من الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d2_05"},{"a":"13:30","b":"14:00","t":"rest","i2":"🛋️","n":"راحة","d":"استراحة بعد الكُتّاب","id":"d2_06"},{"a":"14:00","b":"16:00","t":"study","i2":"📚","n":"Arabic","d":"مراجعة + واجب بعد الدرس — 60 دقيقة","id":"d2_07"},{"a":"16:30","b":"17:00","t":"transport","i2":"🚌","n":"المواصلات إلى درس Arabic","d":"حوالي 30 دقيقة","id":"d2_08"},{"a":"17:00","b":"18:30","t":"lesson","i2":"🎓","n":"Arabic — درس","d":"ساعة ونصف","id":"d2_09"},{"a":"18:30","b":"19:00","t":"transport","i2":"🚌","n":"العودة من درس Arabic","d":"حوالي 30 دقيقة","id":"d2_10"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d2_11"},{"a":"19:30","b":"21:45","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d2_12"},{"a":"22:00","b":"23:00","t":"gym","i2":"🏋️","n":"الجيم","d":"الساعة 10:00 مساءً — العودة تقريبًا 11:00 أو 11:30","id":"d2_13"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🚿","n":"دش واستعداد للنوم","d":"بعد العودة مباشرة — وشيء خفيف اختياري إن شعرت بالجوع","id":"d2_14"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d2_15"}],"الثلاثاء":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d3_00"},{"a":"07:30","b":"09:30","t":"study","i2":"📚","n":"English","d":"فهم + مراجعة — 45 دقيقة","id":"d3_01"},{"a":"09:30","b":"10:00","t":"kuttab","i2":"📖","n":"مراجعة قرآن","d":"مراجعة قرآن قبل الكتاب","id":"d3_02"},{"a":"10:00","b":"10:45","t":"study","i2":"📚","n":"Studies","d":"مذاكرة دراسات وتجهيز للخروج إلى درس Science","id":"d3_03"},{"a":"10:45","b":"11:00","t":"transport","i2":"🚌","n":"المواصلات إلى الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d3_04"},{"a":"11:00","b":"13:00","t":"kuttab","i2":"📖","n":"الكُتّاب","d":"التزام ثابت من الأحد إلى الخميس","id":"d3_05"},{"a":"13:00","b":"13:30","t":"transport","i2":"🚌","n":"العودة من الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d3_06"},{"a":"13:45","b":"14:00","t":"transport","i2":"🚌","n":"المواصلات إلى درس Science","d":"حوالي 15 دقيقة","id":"d3_07"},{"a":"14:00","b":"17:30","t":"lesson","i2":"🎓","n":"Science — درس","d":"ثلاث ساعات ونصف","id":"d3_08"},{"a":"17:30","b":"18:00","t":"transport","i2":"🚌","n":"العودة من درس Science","d":"حوالي 15 دقيقة","id":"d3_09"},{"a":"18:00","b":"19:00","t":"rest","i2":"🛋️","n":"راحة ووقت حر","d":"استراحة بعد درس طويل","id":"d3_10"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d3_11"},{"a":"19:30","b":"21:45","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d3_12"},{"a":"22:00","b":"23:00","t":"family","i2":"👨‍👩‍👧","n":"وقت العائلة والراحة","d":"لا يوجد جيم اليوم — وشيء خفيف اختياري إن شعرت بالجوع","id":"d3_13"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🌙","n":"الاستعداد للنوم","d":"تجهيز هادئ للنوم","id":"d3_14"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d3_15"}],"الأربعاء":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d4_00"},{"a":"07:30","b":"09:30","t":"study","i2":"📚","n":"Math","d":"تثبيت نقاط الضعف + حل مسائل — 90 دقيقة","id":"d4_01"},{"a":"09:30","b":"10:00","t":"rest","i2":"🛋️","n":"وقت حر وراحة","d":"تجهيز للخروج إلى درس Studies","id":"d4_02"},{"a":"10:00","b":"10:45","t":"kuttab","i2":"📖","n":"مراجعة القرآن","d":"مراجعة القرآن قبل الكُتّاب","id":"d4_03"},{"a":"10:45","b":"11:00","t":"transport","i2":"🚌","n":"المواصلات إلى الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d4_04"},{"a":"11:00","b":"13:00","t":"kuttab","i2":"📖","n":"الكُتّاب","d":"التزام ثابت من الأحد إلى الخميس","id":"d4_05"},{"a":"13:00","b":"13:15","t":"transport","i2":"🚌","n":"العودة من الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d4_06"},{"a":"13:15","b":"14:00","t":"rest","i2":"🛋️","n":"راحة","d":"استراحة بعد الكُتّاب","id":"d4_07"},{"a":"14:00","b":"16:30","t":"study","i2":"📚","n":"Science","d":"مراجعة + واجب بعد الدرس — 60 دقيقة","id":"d4_08"},{"a":"16:45","b":"17:00","t":"transport","i2":"🚌","n":"المواصلات Studies","d":"حوالي 15 دقيقة","id":"d4_09"},{"a":"17:00","b":"19:00","t":"lesson","i2":"🎓","n":"Studies — درس","d":"ينتهي 6:00 وقد يمتد إلى 6:30","id":"d4_10"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d4_11"},{"a":"19:30","b":"21:30","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d4_12"},{"a":"22:00","b":"23:00","t":"gym","i2":"🏋️","n":"الجيم","d":"الساعة 10:00 مساءً — العودة تقريبًا 11:00 أو 11:30","id":"d4_13"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🚿","n":"دش واستعداد للنوم","d":"بعد العودة مباشرة — وشيء خفيف اختياري إن شعرت بالجوع","id":"d4_14"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d4_15"}],"الخميس":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d5_00"},{"a":"07:30","b":"09:30","t":"study","i2":"📚","n":"English","d":"مراجعة + واجب — 30 دقيقة","id":"d5_01"},{"a":"09:30","b":"10:45","t":"kuttab","i2":"📖","n":"مراجعة القرآن","d":"مراجعة القرآن","id":"d5_02"},{"a":"10:45","b":"11:00","t":"transport","i2":"🚌","n":"المواصلات إلى الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d5_03"},{"a":"11:00","b":"13:00","t":"kuttab","i2":"📖","n":"الكُتّاب","d":"التزام ثابت من الأحد إلى الخميس","id":"d5_04"},{"a":"13:00","b":"13:15","t":"transport","i2":"🚌","n":"العودة من الكُتّاب","d":"10–15 دقيقة تقريبًا","id":"d5_05"},{"a":"14:00","b":"15:00","t":"study","i2":"📚","n":"Arabic","d":"مراجعة + واجب — 30 دقيقة","id":"d5_06"},{"a":"15:00","b":"15:30","t":"transport","i2":"🚌","n":"المواصلات إلى درس English","d":"حوالي 30 دقيقة","id":"d5_07"},{"a":"15:30","b":"17:00","t":"lesson","i2":"🎓","n":"English — درس","d":"ساعة ونصف","id":"d5_08"},{"a":"17:00","b":"18:30","t":"lesson","i2":"🎓","n":"Arabic — درس","d":"مباشرة بعد English — بدون مواصلات بينهما","id":"d5_09"},{"a":"18:30","b":"19:00","t":"transport","i2":"🚌","n":"العودة بعد الدروس","d":"حوالي 30 دقيقة","id":"d5_10"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d5_11"},{"a":"19:30","b":"21:30","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d5_12"},{"a":"22:00","b":"23:00","t":"family","i2":"👨‍👩‍👧","n":"وقت العائلة والراحة","d":"لا يوجد جيم اليوم — وشيء خفيف اختياري إن شعرت بالجوع","id":"d5_13"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🌙","n":"الاستعداد للنوم","d":"تجهيز هادئ للنوم","id":"d5_14"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d5_15"}],"الجمعة":[{"a":"07:00","b":"07:30","t":"rest","i2":"☀️","n":"الاستيقاظ","d":"استيقاظ وتجهيز لبدء اليوم","id":"d6_00"},{"a":"07:30","b":"11:00","t":"study","i2":"📚","n":"Science","d":"تثبيت نقاط الضعف — 90 دقيقة","id":"d6_01"},{"a":"11:00","b":"13:30","t":"rest","i2":"🛋️","n":"صلاة الجمعة","d":"فطار + صلاة الجمعة","id":"d6_02"},{"a":"13:30","b":"14:00","t":"rest","i2":"🛋️","n":"وقت حر وراحة","d":"راحة وترفيه خفيف","id":"d6_03"},{"a":"14:00","b":"16:00","t":"study","i2":"📚","n":"Studies","d":"مراجعة شاملة — 90 دقيقة","id":"d6_04"},{"a":"16:00","b":"19:00","t":"code","i2":"💻","n":"Frontend Recovery","d":"برمجة أو مذاكرة لو لسه مخلصتش","id":"d6_05"},{"a":"19:00","b":"19:30","t":"meal","i2":"🍽️","n":"الغداء","d":"الغداء حوالي الساعة 7:00 مساءً","id":"d6_06"},{"a":"19:30","b":"21:30","t":"code","i2":"💻","n":"Frontend Recovery","d":"ساعتان متواصلتان — جلسة واحدة بدون تقسيم","id":"d6_07"},{"a":"21:30","b":"22:00","t":"family","i2":"👨‍👩‍👧","n":"وقت العائلة والراحة","d":"وقت حر قبل الجيم","id":"d6_08"},{"a":"22:00","b":"23:00","t":"gym","i2":"🏋️","n":"الجيم","d":"الساعة 10:00 مساءً — العودة تقريبًا 11:00 أو 11:30","id":"d6_09"},{"a":"23:00","b":"23:30","t":"sleep","i2":"🚿","n":"دش واستعداد للنوم","d":"بعد العودة مباشرة — وشيء خفيف اختياري إن شعرت بالجوع","id":"d6_10"},{"a":"23:30","b":null,"t":"sleep","i2":"😴","n":"النوم","d":"الهدف: النوم حوالي 11:30 مساءً","id":"d6_11"}]};
+const DAYS=["السبت","الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة"];
+const TYPES={code:"برمجة",study:"مذاكرة",lesson:"درس",kuttab:"كُتّاب",gym:"جيم",sleep:"نوم",rest:"راحة",family:"عائلة",meal:"وجبة",transport:"مواصلات"};
+const COL={code:"code",study:"study",lesson:"lesson",kuttab:"kuttab",gym:"gym",sleep:"sleep"};
+const TABS=[["sum","ملخص الأسبوع"],["day","الأيام"],["les","الدروس"],["stu","المذاكرة"]];
+const AR={Saturday:"السبت",Sunday:"الأحد",Monday:"الاثنين",Tuesday:"الثلاثاء",Wednesday:"الأربعاء",Thursday:"الخميس",Friday:"الجمعة"};
+function now(){const d=new Date(),tz={timeZone:"Africa/Cairo"};const ymd=new Intl.DateTimeFormat("en-CA",tz).format(d);const wd=new Intl.DateTimeFormat("en-US",{...tz,weekday:"long"}).format(d);const hm=new Intl.DateTimeFormat("en-GB",{...tz,hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(d);const[h,m]=hm.split(":").map(Number);const idx=DAYS.indexOf(AR[wd]);const ws=new Date(ymd+"T00:00:00Z");ws.setUTCDate(ws.getUTCDate()-idx);return{day:AR[wd],idx,min:h*60+m,week:ws.toISOString().slice(0,10)}}
+const CKEY="weekly-checks-v2";
+function loadC(){let c=null;try{c=JSON.parse(localStorage.getItem(CKEY))}catch(e){}const w=now().week;if(!c||c.w!==w)c={w,done:{}};return c}
+function saveC(){try{localStorage.setItem(CKEY,JSON.stringify(C))}catch(e){}}
+let C=loadC();
+let S,tab="day",day=now().day,lastDay=day,editing=false;
+const KEY="weekly-routine-v2";
+function load(){try{const v=localStorage.getItem(KEY);if(v)return JSON.parse(v)}catch(e){}return JSON.parse(JSON.stringify(DEF))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+S=load();DAYS.forEach(d=>(S[d]||[]).forEach((r,k)=>{if(!r.id)r.id="x"+d+k}));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mm=t=>{const[h,m]=t.split(":").map(Number);return h*60+m};
+const d12=t=>{const[h,m]=t.split(":").map(Number);return(h%12||12)+":"+String(m).padStart(2,"0")};
+function per(a,b){const x=mm(a),y=b?mm(b):x;if(x<720&&y>720)return"صباحًا – ظهرًا";if(y<=720)return"صباحًا";if(x>=720&&y<=840)return"ظهرًا";return"مساءً"}
+const rng=t=>'<span class="rng">'+t.map(x=>"<span>"+x+"</span>").join("")+"</span>";
+const sorted=d=>S[d].map((r,i)=>({...r,i})).sort((p,q)=>mm(p.a)-mm(q.a));
+function tcell(r){return '<div class="tm">'+(r.b?rng([d12(r.a),"–",d12(r.b)]):rng([d12(r.a)]))+"<small>"+per(r.a,r.b)+"</small></div>"}
+function conflicts(d){const rs=sorted(d),bad=new Set();rs.forEach((r,k)=>{if(r.b&&mm(r.b)<=mm(r.a))bad.add(r.i);const n=rs[k+1];if(n&&r.b&&mm(r.b)>mm(n.a)){bad.add(r.i);bad.add(n.i)}});return bad}
+function chips(d){const t=new Set(S[d].map(r=>r.t));const subj=[...new Set(S[d].filter(r=>r.t=="study").map(r=>r.n))];
+const c=[];if(t.has("code"))c.push(["code","💻 برمجة"]);if(t.has("kuttab"))c.push(["kuttab","📖 كُتّاب"]);if(t.has("lesson"))c.push(["lesson","🎓 "+[...new Set(S[d].filter(r=>r.t=="lesson").map(r=>r.n.split(" — ")[0]))].join(" + ")]);if(subj.length)c.push(["study","📚 "+subj.join(" + ")]);if(t.has("gym"))c.push(["gym","🏋️ جيم"]);return c}
+const chipH=d=>chips(d).map(([k,x])=>`<span class="chip" style="--c:var(--${k})">${esc(x)}</span>`).join("");
+function legend(){return '<div class="legend">'+[["code","البرمجة"],["study","المذاكرة"],["lesson","الدروس"],["kuttab","الكُتّاب"],["gym","الجيم"],["sleep","النوم"],["rest","الراحة والعائلة"]].map(([k,v])=>`<span><i style="background:var(--${k})"></i>${v}</span>`).join("")+"</div>"}
+function dayView(){
+const n=now(),ti=n.idx,di=DAYS.indexOf(day),state=di<ti?"past":di==ti?"today":"future";
+const bad=conflicts(day),dn=C.done[day]||{},rs=sorted(day),tot=rs.length,got=rs.filter(r=>dn[r.id]).length;
+let h='<div class="days">'+DAYS.map((d,k)=>{const y=S[d].filter(r=>(C.done[d]||{})[r.id]).length;return`<button class="day ${d==day?"on":""}" data-d="${d}">${d}${k==ti?" <small>(اليوم)</small>":""}${k<=ti?`<small> ${y}/${S[d].length}</small>`:""}</button>`}).join("")+"</div>";
+h+=`<div class="dh"><h2>${day}</h2><div class="chips">${chipH(day)}</div></div>`;
+if(!editing){
+if(state=="today")h+=`<div class="prog"><div><b>تم ${got} من ${tot}</b><span>علّم على اللي خلّصته أول بأول</span></div><i style="--p:${Math.round(got/tot*100)}%"></i></div>`;
+else if(state=="past")h+=`<div class="note lock">🔒 اليوم ده خلص واتقفل — خلّصت ${got} من ${tot}.</div>`;
+else h+='<div class="note lock">⏳ اليوم ده لسه مجاش — الـcheckbox بتفتح أول ما يبدأ.</div>'}
+if(bad.size)h+='<div class="warn" style="margin-bottom:8px">⚠️ في تعارض في المواعيد — الصفوف المحاطة بالأحمر.</div>';
+h+=rs.map(r=>{
+if(!editing){const ck=state!="future",isNow=state=="today"&&n.min>=mm(r.a)&&n.min<(r.b?mm(r.b):mm(r.a)+30);
+return`<div class="row ${r.t}${bad.has(r.i)?" bad":""}${ck?" ck":""}${dn[r.id]?" done":""}${isNow?" now":""}">${ck?`<label class="cbw"><input type="checkbox" data-ck="${r.id}"${dn[r.id]?" checked":""}${state=="today"?"":" disabled"} aria-label="تم"></label>`:""}${tcell(r)}<div class="act"><span>${esc(r.i2)}</span><span>${esc(r.n)}</span>${isNow?'<span class="nowb">دلوقتي</span>':""}</div><div class="det">${esc(r.d)}</div></div>`}
+const o=Object.entries(TYPES).map(([k,v])=>`<option value="${k}"${k==r.t?" selected":""}>${v}</option>`).join("");
+return`<div class="row ed ${r.t}${bad.has(r.i)?" bad":""}" data-i="${r.i}"><input type="time" data-f="a" value="${r.a}" aria-label="من"><input type="time" data-f="b" value="${r.b||""}" aria-label="إلى"><select data-f="t">${o}</select><input data-f="i2" value="${esc(r.i2)}" aria-label="أيقونة"><input class="w2" data-f="n" value="${esc(r.n)}" aria-label="النشاط"><input class="w2" data-f="d" value="${esc(r.d)}" aria-label="التفاصيل"><button class="del" data-del="${r.i}">🗑️ حذف</button></div>`}).join("");
+if(editing)h+='<button class="btn add" id="add" style="margin-top:6px">＋ إضافة نشاط</button>';
+return h+legend()}
+function card(k,i,t,v,s){return`<div class="card" style="--c:var(--${k})"><div class="ic">${i}</div><div><b>${t}</b><span>${v}</span><small>${s}</small></div></div>`}
+function sumView(){
+const g=DAYS.filter(d=>S[d].some(r=>r.t=="gym")).length,k=DAYS.filter(d=>S[d].some(r=>r.t=="kuttab"&&!/قرآن/.test(r.n)));
+const cm=S["السبت"].filter(r=>r.t=="code").map(r=>(mm(r.b)-mm(r.a))/60)[0]||0;
+const first=sorted("السبت")[0],last=sorted("السبت").slice(-1)[0];
+let h='<div class="grid">'+card("code","💻","البرمجة","ساعتان يوميًا","Frontend Recovery")+card("study","📚","المذاكرة","مادتان يوميًا","بأسماء المواد الحقيقية")+card("kuttab","📖","الكُتّاب",k.length+" أيام","11:00 – 1:00")+card("gym","🏋️","الجيم",g+" أيام أسبوعيًا","الساعة 10 مساءً")+card("sleep","😴","النوم","حوالي "+d12(last.a)+" م","هدف ثابت")+card("rest","☀️","الاستيقاظ",d12(first.a)+" ص","كل يوم")+card("lesson","✅","تقدم الأسبوع",DAYS.reduce((s,d)=>s+S[d].filter(r=>(C.done[d]||{})[r.id]).length,0)+" من "+DAYS.reduce((s,d)=>s+S[d].length,0),"بيتصفّر مع الأسبوع الجديد")+"</div>";
+h+='<h3>الجدول الأسبوعي المختصر</h3><div class="tw"><table><thead><tr><th>اليوم</th><th>أهم الالتزامات</th><th>الدروس</th><th>المواد</th></tr></thead><tbody>'+DAYS.map(d=>{
+const ls=sorted(d).filter(r=>r.t=="lesson").map(r=>esc(r.n.split(" — ")[0])+" "+d12(r.a)+"–"+d12(r.b)).join(" • ")||"—";
+const st=[...new Set(sorted(d).filter(r=>r.t=="study").map(r=>r.n))].join(" + ")||"—";
+return`<tr><td class="d">${d}</td><td><div class="chips">${chipH(d)}</div></td><td>${ls}</td><td>${esc(st)}</td></tr>`}).join("")+"</tbody></table></div>";
+return h+'<div class="note">كل الأرقام هنا بتتحسب من الجدول اليومي — عدّل أي نشاط من تبويب «الأيام» والملخص يتغير لوحده.</div>'+legend()}
+function lesView(){
+let rows="";DAYS.forEach(d=>sorted(d).filter(r=>r.t=="lesson").forEach(r=>rows+=`<tr><td class="d">${d}</td><td style="color:var(--lesson);font-weight:800">${esc(r.n.split(" — ")[0])}</td><td>${rng([d12(r.a),"–",d12(r.b)])} ${per(r.a,r.b)}</td><td>${esc(r.d)}</td></tr>`));
+const ks=DAYS.filter(d=>S[d].some(r=>r.t=="kuttab"&&!/قرآن/.test(r.n)));
+return'<h3>📚 جدول الدروس الأسبوعي</h3><div class="tw"><table><thead><tr><th>اليوم</th><th>الدرس</th><th>الوقت</th><th>تفاصيل</th></tr></thead><tbody>'+rows+"</tbody></table></div>"+(ks.length?`<div class="grid" style="margin-top:14px">${card("kuttab","📖","الكُتّاب — التزام ثابت",ks[0]+" – "+ks[ks.length-1],"11:00 صباحًا – 1:00 ظهرًا")}</div>`:"")}
+function stuView(){
+let rows="";DAYS.forEach(d=>{const s=sorted(d).filter(r=>r.t=="study");rows+=`<tr><td class="d">${d}</td><td>${s.map(r=>`<div style="color:var(--study);font-weight:800">${esc(r.n)}</div><div class="det">${esc(r.d)}</div>`).join("")||"—"}</td><td>${s.map(r=>`<div>${rng([d12(r.a),"–",d12(r.b)])}</div>`).join("")}</td></tr>`});
+const cnt={};DAYS.forEach(d=>S[d].filter(r=>r.t=="study").forEach(r=>cnt[r.n]=(cnt[r.n]||0)+1));
+return'<h3>📖 خطة المذاكرة الأسبوعية</h3><div class="tw"><table><thead><tr><th>اليوم</th><th>المادة ونوع المذاكرة</th><th>الوقت</th></tr></thead><tbody>'+rows+"</tbody></table></div><h3>توزيع الجلسات</h3><div class=\"chips\">"+Object.entries(cnt).map(([k,v])=>`<span class="chip" style="--c:var(--study)">${esc(k)}: ${v} جلسات</span>`).join("")+"</div>"}
+function render(){
+$("#tabs").innerHTML=TABS.map(([k,v])=>`<button class="tab ${k==tab?"on":""}" data-t="${k}">${v}</button>`).join("");
+$("#view").innerHTML=({sum:sumView,day:dayView,les:lesView,stu:stuView})[tab]();
+$("#edit").className="btn"+(editing?" on":"");$("#edit").textContent=editing?"✅ تم":"✏️ تعديل"}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-t],[data-d],[data-del],#add,#edit,#print,#reset");if(!t)return;
+if(t.dataset.t){tab=t.dataset.t;if(tab!="day")editing=false}
+else if(t.dataset.d)day=t.dataset.d;
+else if(t.dataset.del!==undefined){S[day].splice(+t.dataset.del,1);save()}
+else if(t.id=="add"){const l=sorted(day).slice(-1)[0];S[day].push({id:"n"+Date.now(),a:l?l.a:"08:00",b:null,t:"rest",i2:"🛋️",n:"نشاط جديد",d:""});save()}
+else if(t.id=="edit"){editing=!editing;tab="day"}
+else if(t.id=="print"){window.print();return}
+else if(t.id=="reset"){if(!confirm("هترجع الجدول الأصلي وكل تعديلاتك هتتمسح. متأكد؟"))return;S=JSON.parse(JSON.stringify(DEF));save()}
+render()});
+document.addEventListener("input",e=>{const r=e.target.closest(".row.ed");if(!r)return;const f=e.target.dataset.f;let v=e.target.value;if(f=="b"&&!v)v=null;S[day][+r.dataset.i][f]=v;save()});
+document.addEventListener("change",e=>{const k=e.target.dataset&&e.target.dataset.ck;if(k){if(day!==now().day){render();return}(C.done[day]=C.done[day]||{})[k]=e.target.checked;saveC();render();return}if(e.target.closest(".row.ed"))render()});
+function tick(){const n=now();if(C.w!==n.week)C=loadC();if(n.day!==lastDay){lastDay=n.day;day=n.day}const a=document.activeElement;if(!editing&&!(a&&a.matches&&a.matches("input,select")))render()}
+setInterval(tick,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick()});
+render();
+</script>
+</body>
+</html>
