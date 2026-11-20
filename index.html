@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حياتي — الروتين والمهام في مكان واحد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#dash">حياتي</a>
+  <nav id="nav"></nav>
+  <div class="tools">
+    <button class="ib" data-act="theme" aria-label="تبديل المظهر">◐</button>
+    <button class="ib" data-act="print" aria-label="طباعة">🖨️</button>
+    <button class="ib" data-act="export" aria-label="تصدير">⬇</button>
+    <label class="ib" aria-label="استيراد">⬆<input type="file" id="imp" accept=".json" hidden></label>
+  </div>
+</header>
+<main id="view"></main>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
