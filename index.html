@@ -14,11 +14,20 @@
   <a class="logo" href="#dash">حياتي</a>
   <nav id="nav"></nav>
   <div class="tools">
-    <button class="ib" data-act="name" aria-label="اسمك">👤</button><button class="ib" data-act="notif" aria-label="تنبيهات">🔔</button>
-    <button class="ib" data-act="theme" aria-label="تبديل المظهر">◐</button>
-    <button class="ib" data-act="print" aria-label="طباعة">🖨️</button>
-    <button class="ib" data-act="export" aria-label="تصدير">⬇</button>
-    <label class="ib" aria-label="استيراد">⬆<input type="file" id="imp" accept=".json" hidden></label>
+    <button class="ib" data-act="theme" aria-label="تبديل الوضع الليلي">◐</button>
+    <details class="menu">
+      <summary class="ib" aria-label="الإعدادات">⚙</summary>
+      <div class="pop">
+        <button class="mi" data-act="acc">🎨 غيّر لون الموقع</button>
+        <button class="mi" data-act="fsu">أ+ كبّر الخط</button>
+        <button class="mi" data-act="fsd">أ− صغّر الخط</button>
+        <button class="mi" data-act="name">👤 اسمك</button>
+        <button class="mi" data-act="notif">🔔 تنبيهات الأنشطة</button>
+        <button class="mi" data-act="print">🖨️ طباعة</button>
+        <button class="mi" data-act="export">⬇ تصدير نسخة احتياطية</button>
+        <label class="mi">⬆ استيراد نسخة<input type="file" id="imp" accept=".json" hidden></label>
+      </div>
+    </details>
   </div>
 </header>
 <main id="view"></main>
