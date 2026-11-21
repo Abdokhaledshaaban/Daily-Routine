@@ -123,3 +123,14 @@ main{padding:16px 14px 110px}.top{backdrop-filter:none;background:var(--bg);padd
 #toast{bottom:88px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{.top,.days,.f,.tools,button,#nav{display:none!important}body{background:#fff}.row{break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+/* v4: الشريط + المؤقت */
+.ribbon{height:64px;background:linear-gradient(90deg,var(--surf) 1px,transparent 1px) 0 0/12.5% 100%,var(--line)}
+.ribbon i{cursor:pointer;transition:opacity .2s,filter .15s}.ribbon i:hover{filter:brightness(1.12)}
+.ribbon i.tp{opacity:.4}.ribbon i.dn{opacity:.4}
+.ribbon em{display:block;font-style:normal;font-size:.72rem;font-weight:700;color:var(--on);padding:0 8px;line-height:64px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ribbon s{position:absolute;bottom:4px;width:11px;height:11px;margin-left:-5px;border-radius:50%;background:var(--ink);border:2px solid var(--surf);cursor:pointer;z-index:2}
+.ribbon b{z-index:3;border-radius:2px}
+.ticks span{flex:1;text-align:start}.ticks span:last-child{text-align:end;flex:0}
+.tf{grid-template-columns:2fr 1fr 1fr 1fr 1fr auto}
+@media(max-width:760px){.tf{grid-template-columns:1fr}.ticks span:nth-child(even){display:none}}
